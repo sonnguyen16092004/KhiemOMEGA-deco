@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Website Title</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    {% block register %}
+   <div class="row" style= "width:100%">
+  {% for product in keys %}
+  <div class="col-lg-3">
+    <img class="thumblai" src="{{product.ImageURL}}" height="250" width=" 300">
+<div class="box-element product text-center">
+  <h6><strong>{{product.name}}</strong></h6>
+  <hr>
+  <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Thêm vào giỏ hàng</button>
+  <a class="btn btn-outline-success" href="#">Xem</a>
+<p style="color: red; font-size: 20px;">{{product.price}} VND</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+    {% endblock register %}
+</body>
+</html>
